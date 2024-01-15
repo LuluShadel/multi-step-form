@@ -1,10 +1,11 @@
+import Sidebar from "@/components/sidebar"
 import Link from "next/link"
 
 
 export default function Page2() {
     return (
         <div>
-    <h1>Page 2 </h1>
+   <Sidebar pageStyle2="!text-black bg-lightBlue border-none" />
     <Link href="/"> retour vers page 1 </Link>
     </div>
     )

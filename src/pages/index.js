@@ -1,10 +1,20 @@
-import Link from "next/link"
+import Sidebar from "@/components/sidebar"
+import PersonalInfo from "@/components/PersonalInfo"
+import BtnFooter from "@/components/btnFooter"
 
 export default function Page() {
     return(
         <div>
-     <h1>Page 1 </h1>
-     <Link href="/page2"> lien vers page 2 </Link>
-     </div>
+          <Sidebar
+          pageStyle1="!text-black bg-lightBlue border-none" />
+          < PersonalInfo />
+          <BtnFooter 
+          btnTextNext="Next step"
+          linkNext="/page2"
+          linkBack="/"
+          
+          />
+
+        </div>
     )
   }
