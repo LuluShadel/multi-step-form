@@ -9,6 +9,14 @@ module.exports = {
     extend: {
       colors: {
         marineBlue : "#02295A",
+        purplishBlue : "#473DFF",
+        pastelBlue : "#ADBEFF",
+        lightBlue : "#BFE2FD",
+        strawberryRed : "#ED3548",
+        magnolia :"#F0F6FF",
+        lightGrey : "#D6D9E6",
+        coolGrey : "#9699AB",
+
       },
       
     },
