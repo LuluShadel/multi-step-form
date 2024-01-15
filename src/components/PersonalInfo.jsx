@@ -2,8 +2,8 @@
 
 export default function PersonalInfo() {
     return (
-        <div className="absolute top-[5.8em] w-full flex justify-center">
-            <div className=" bg-white w-full ml-4 mr-4 p-6 rounded-xl flex flex-col gap-4">
+        <div className=" w-full flex justify-center bg-magnolia">
+            <div className=" relative top-[-5em] bg-white w-full ml-4 mr-4 p-6 rounded-xl flex flex-col gap-4 md:w-1/2 ">
             <h1>Personal info</h1>
             <p className="text-coolGrey">Please provid your name, email, address and phone number.</p>
             <form className="flex flex-col">
