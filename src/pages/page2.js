@@ -1,12 +1,22 @@
 import Sidebar from "@/components/sidebar"
-import Link from "next/link"
+import BtnFooter from "@/components/btnFooter"
+
 
 
 export default function Page2() {
     return (
-        <div>
-   <Sidebar pageStyle2="!text-black bg-lightBlue border-none" />
-    <Link href="/"> retour vers page 1 </Link>
+      <div className="flex flex-col w-full md:flex-row md:bg-white md:rounded-xl  ">
+          
+      <Sidebar
+      pageStyle2="!text-black bg-lightBlue border-none" />
+      <div>
+      
+      <BtnFooter 
+      btnTextNext="Next step"
+      linkNext="/page2"
+      linkBack="/"
+      />
+    </div>
     </div>
     )
   }

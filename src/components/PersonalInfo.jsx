@@ -2,8 +2,8 @@
 
 export default function PersonalInfo() {
     return (
-        <div className=" w-full flex justify-center bg-magnolia">
-            <div className=" relative top-[-5em] bg-white w-full ml-4 mr-4 p-6 rounded-xl flex flex-col gap-4 md:w-1/2 ">
+        <div className="flex justify-center bg-magnolia md:bg-white">
+            <div className=" relative top-[-5em] bg-white ml-4 mr-4 p-6 rounded-xl flex flex-col gap-4  md:top-0 ">
             <h1>Personal info</h1>
             <p className="text-coolGrey">Please provid your name, email, address and phone number.</p>
             <form className="flex flex-col">
@@ -11,13 +11,13 @@ export default function PersonalInfo() {
                 <input 
                 type="text" 
                 placeholder="e.g.Stephen King"
-                className="border-coolgrey border-2 p-2"
+                className="border-coolgrey border-2 p-2 md:mb-4"
                 />
                 <label>Email Address</label>
                 <input 
                 type="text" 
                 placeholder="e.g.stephenking@lorem.com"
-                className="border-coolgrey border-2 p-2"
+                className="border-coolgrey border-2 p-2 md:mb-4"
                 />
                 <label>Phone Number</label>
                 <input 

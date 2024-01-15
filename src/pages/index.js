@@ -4,11 +4,11 @@ import BtnFooter from "@/components/btnFooter"
 
 export default function Page() {
     return(
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full md:flex-row md:bg-white md:rounded-xl  ">
           
           <Sidebar
           pageStyle1="!text-black bg-lightBlue border-none" />
-          <div className="">
+          <div>
           < PersonalInfo />
           <BtnFooter 
           btnTextNext="Next step"

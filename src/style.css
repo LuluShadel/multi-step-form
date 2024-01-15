@@ -5,7 +5,16 @@
 
 
 html{
-    font-family:'Ubuntu', sans-serif;;
+    font-family:'Ubuntu', sans-serif;
+    
+}
+
+body{
+    background-color: #F0F6FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 h1{
@@ -13,12 +22,15 @@ h1{
     font-weight: bold;
 }
 
+h3{
+    font-size: small;
+}
+
 .bgDesktop {
     background-image: url("../public/bg-sidebar-desktop.svg"); 
     background-repeat: no-repeat;
-background-position: center;
-width: 600px;
-height: 600px;
+    background-position:  center center ;
+    background-size: cover;
 
 }
 
