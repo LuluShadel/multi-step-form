@@ -1,16 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  test:"test"
+  selectedPlan:null
 };
 
-const myReducer = createSlice({
-  name: 'myReducer',
+
+const planSlice = createSlice({
+  name: 'plan',
   initialState,
   reducers: {
-    // Ajout actions et reducers ici
+    selectedPlan: (state, action) => {
+      state.selectedPlan = action.payload;
+    },
   },
 });
 
-export const { actions } = myReducer;
-export default myReducer.reducer;
+export const { selectedPlan } = planSlice.actions;
+export default planSlice.reducer;
