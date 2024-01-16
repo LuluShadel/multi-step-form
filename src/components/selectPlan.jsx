@@ -27,6 +27,13 @@ const [isChecked, setIsChecked] = useState(false);
         dispatch(selectedPlan({ name, price }));
       };
 
+      //btn active 
+
+      const [arcadeActive,setArcadeActive] =useState(false)
+      const [advancedActive,setAdvancedActive] = useState(false)
+      const [proActive,setProActive] = useState(false)
+
+    
 
 
      
@@ -38,8 +45,13 @@ const [isChecked, setIsChecked] = useState(false);
         <p className="text-coolGrey">You have option of monthly or yearly billing</p>
         <div className="flex flex-col gap-2 md:flex-row">
             <button 
-            className="p-4 flex items-center border-2 rounded-xl gap-4 h-28 md:flex-col md:gap-8  md:w-36 md:pl-4 md:items-start md:h-44 hover:bg-magnolia hover:border-2 hover:border-marineBlue"
-            onClick={() => handlePlanSelection("arcade" ,9)}
+            className={`p-4 flex items-center border-2 rounded-xl gap-4 h-28 md:flex-col md:gap-8  md:w-36 md:pl-4 md:items-start md:h-44 hover:bg-magnolia hover:border-2 hover:border-marineBlue ${arcadeActive ? 'bg-magnolia border-2 border-marineBlue ' : ''}`}
+            onClick={() => {
+                handlePlanSelection("arcade", 9);
+                setArcadeActive(true);
+                setAdvancedActive(false)
+                setProActive(false)
+              }}
             >
                 
                 <Image src={arcade} alt="arcade" />
@@ -73,8 +85,13 @@ const [isChecked, setIsChecked] = useState(false);
                 </div>
             </button>
             <button 
-            className="p-4 flex items-center border-2 rounded-xl gap-4 h-28 md:flex-col md:gap-8 md:w-36 md:pl-4 md:items-start md:h-44  hover:bg-magnolia hover:border-2 hover:border-marineBlue"
-            onClick={() => handlePlanSelection("advanced",12)}
+           className={`p-4 flex items-center border-2 rounded-xl gap-4 h-28 md:flex-col md:gap-8  md:w-36 md:pl-4 md:items-start md:h-44 hover:bg-magnolia hover:border-2 hover:border-marineBlue ${advancedActive ? 'bg-magnolia border-2 border-marineBlue ' : ''}`}
+           onClick={() => {
+            handlePlanSelection("advanced", 12);
+            setAdvancedActive(true);
+            setArcadeActive(false)
+            setProActive(false)
+          }}
             >
                 
                 <Image src={advanced} alt="arcade" />
@@ -110,8 +127,13 @@ const [isChecked, setIsChecked] = useState(false);
                 </div>
             </button>
             <button 
-            className="p-4 flex items-center  border-2 rounded-xl gap-4 h-28 md:flex-col md:gap-8 md:w-36 md:pl-4 md:items-start md:h-44  hover:bg-magnolia hover:border-2 hover:border-marineBlue"
-            onClick={() => handlePlanSelection("pro",15)}
+           className={`p-4 flex items-center border-2 rounded-xl gap-4 h-28 md:flex-col md:gap-8  md:w-36 md:pl-4 md:items-start md:h-44 hover:bg-magnolia hover:border-2 hover:border-marineBlue ${proActive ? 'bg-magnolia border-2 border-marineBlue ' : ''}`}
+           onClick={() => {
+            handlePlanSelection("advanced", 12);
+            setAdvancedActive(false);
+            setArcadeActive(false)
+            setProActive(true)
+          }}
             >
                 
                 <Image src={pro} alt="arcade" />
