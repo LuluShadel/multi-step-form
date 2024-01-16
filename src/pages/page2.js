@@ -15,7 +15,7 @@ export default function Page2() {
       <BtnFooter 
       btnTextNext="Next step"
       btnTextBack="Go back"
-      linkNext="/page2"
+      linkNext="/page3"
       linkBack="/"
       />
     </div>

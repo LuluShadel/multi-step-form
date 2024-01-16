@@ -1,9 +1,15 @@
-
+import { useDispatch} from 'react-redux';
+import { toggle } from "../../redux/reducer";
 
 export default function ToggleSwitch({isChecked,setIsChecked}) {
+  const dispatch = useDispatch ()
   
+  const handleToggle = () => {
+    const newCheckedState = !isChecked;
+    setIsChecked(newCheckedState);
+    dispatch(toggle({ isChecked: newCheckedState }));
+  };
 
-  const subscriptionType = isChecked ? 'Monthly' : 'Yearly';
 
   return (
     <div className="flex bg-magnolia rounded p-4 justify-center">
@@ -17,7 +23,7 @@ export default function ToggleSwitch({isChecked,setIsChecked}) {
           type="checkbox"
           className="sr-only"
           checked={isChecked}
-          onChange={() => setIsChecked(!isChecked)}
+          onChange={handleToggle}
         />
         
       </label>
