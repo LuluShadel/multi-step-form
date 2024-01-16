@@ -1,5 +1,7 @@
 import BtnFooter from "@/components/btnFooter";
 
+import { useState } from "react";
+
 import Sidebar from "@/components/sidebar"
 import PersonalInfo from "@/components/PersonalInfo"
 
@@ -7,8 +9,9 @@ import PersonalInfo from "@/components/PersonalInfo"
 
 
 export default function Page() {
-
-
+  const [lastName,setName] = useState("")
+  const [email,setEmail] = useState("")
+  const [phone,setPhone] = useState("")
   
     return(
         <div className="flex flex-col w-full md:flex-row md:bg-white md:rounded-xl  ">
@@ -17,6 +20,12 @@ export default function Page() {
           pageStyle1="!text-black bg-lightBlue border-none" />
           <div>
           < PersonalInfo
+          lastName={lastName}
+          setName={setName}
+          email={email}
+          setEmail={setEmail}
+          phone={phone}
+          setPhone={setPhone}
          
           />
 
@@ -24,6 +33,10 @@ export default function Page() {
         btnTextNext="Next step"
         linkNext="/page2"
         linkBack="/"
+        phone={phone}
+        email={email}
+        lastName={lastName}
+        currentPage={1}
       />    
           
         </div>

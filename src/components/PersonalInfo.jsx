@@ -1,29 +1,13 @@
 
-import { useDispatch} from 'react-redux';
-
-import { personalinfo } from '../../redux/reducer';
-import { useState } from 'react';
-
-export default function PersonalInfo() {
-const [lastName,setName] = useState("")
-const [email,setEmail] = useState("")
-const [phone,setPhone] = useState("")
+export default function PersonalInfo({lastName,setName,email,setEmail,phone,setPhone}) {
 
 
-const dispatch = useDispatch ()
 
 
 
 const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === 'phone' && !/^[0-9]*$/.test(value)) {
-        // Si la valeur contient des caractères non numériques, ne pas placer dans le store
-        return;
-      }
-      
-
-    
 
     switch (name) {
         case 'lastName':
@@ -38,16 +22,8 @@ const handleInputChange = (e) => {
         default:
           break;
       }
-      dispatch(personalinfo({ lastName, email, phone }))
+      
     }
-
-
-
-    
-
-    
-
-
 
     return (
         <div className="flex justify-center bg-magnolia md:bg-white">
