@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { UseSelector, useSelector } from "react-redux";
 
 
 
@@ -7,6 +8,9 @@ export default function AddOn () {
     const [onlineActive,setOnlineActive] = useState(false)
     const [storageActive,setStorageActive]= useState(false)
     const [customizeActive,setCustomizeActive] = useState(false)
+
+    const yearly = useSelector(state=>state.plan.toggle)
+    
 
 
     return(
@@ -25,10 +29,15 @@ export default function AddOn () {
         />
             <div>
             <h2>Online Service</h2>
-            <p>Acces ti multiplayer games</p>
+            <p className="text-coolGrey">Acces ti multiplayer games</p>
             </div>
             </div>
+            {!yearly&&(
         <p>+$1/mo</p>
+        )}
+        {yearly&&(
+        <p>+$10/yr</p>
+        )}
        </div>
        <div className={`p-4 flex items-center justify-between border-2 rounded-xl gap-4    md:pl-4  hover:bg-magnolia hover:border-2 hover:border-marineBlue ${storageActive ? 'bg-magnolia border-2 border-marineBlue ' : ''}`}>
        <div className="flex items-center gap-4">
@@ -40,10 +49,15 @@ export default function AddOn () {
         />
         <div>
             <h2>Larger Storage</h2>
-            <p>Extra 1TB of cloud save</p>
+            <p className="text-coolGrey">Extra 1TB of cloud save</p>
         </div>
         </div>
+        {!yearly&&(
         <p>+$2/mo</p>
+        )}
+        {yearly&&(
+        <p>+$20/yr</p>
+        )}
        </div>
        <div className={`p-4 flex items-center border-2 rounded-xl gap-4 md:pl-4  hover:bg-magnolia hover:border-2 hover:border-marineBlue ${customizeActive ? 'bg-magnolia border-2 border-marineBlue ' : ''}`}>
         <input 
@@ -54,9 +68,14 @@ export default function AddOn () {
         />
         <div>
             <h2>Customizable profile</h2>
-            <p>Custom theme on your profile</p>
+            <p className="text-coolGrey">Custom theme on your profile</p>
         </div>
+        {!yearly&&(
         <p>+$2/mo</p>
+        )}
+        {yearly&&(
+        <p>+$20/yr</p>
+        )}
        </div>
         </div>
         </div>
