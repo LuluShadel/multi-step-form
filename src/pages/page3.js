@@ -1,5 +1,6 @@
 import Sidebar from "@/components/sidebar"
 import BtnFooter from "@/components/btnFooter"
+import AddOn from "@/components/Add-ons"
 
 
 
@@ -12,6 +13,8 @@ export default function Page3() {
       pageStyle3="!text-black bg-lightBlue border-none" />
       <div>
       
+    <AddOn />
+
       <BtnFooter 
       btnTextNext="Next step"
       btnTextBack="Go back"
