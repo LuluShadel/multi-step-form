@@ -8,8 +8,15 @@ export default function Summary () {
 
     const yearly = useSelector((state) => state.plan.toggle);
     const plan = useSelector((state) =>state.plan.selectedPlan)
+    const addon = useSelector((state) =>state.plan.addon)
 
-    console.log(plan)
+    // Calcul du coût total des addons en fonction du choix annuel ou mensuel
+  const totalAddonCost = addon.reduce((total, addon) => {
+    return total + (yearly ? addon.price * 10 : addon.price);
+  }, 0);
+
+  // Calcul du coût total en fonction du choix annuel ou mensuel
+  const totalCost = plan ? (yearly ? plan.price * 10 : plan.price) + totalAddonCost : 0;
 
 
     return (
@@ -27,20 +34,23 @@ export default function Summary () {
             <p>${yearly ? plan.price*10 : plan.price}/{yearly ? "yr":"mo"}</p>
             </div>
             <div>
-                <div className="text-coolGrey text-xs flex justify-between ">
-                    <p>Online Service</p>
-                    <p>+1$/mo</p>
-                </div>
-                <div className="text-coolGrey text-xs flex justify-between ">
-                    <p>Larger storage</p>
-                    <p>+1$/mo</p>
-                </div>
-                <div className="text-coolGrey text-xs flex justify-between ">
-                    <p>Customizable profile</p>
-                    <p>+1$/mo</p>
-                </div>
+            <div className="text-coolGrey text-xs ">
+          {addon.map((addon, index) => (
+            <div key={index} className="flex justify-between" >
+              <p>{addon.name}</p>
+              <p>${yearly ? addon.price*10 : addon.price}/{yearly ? "yr":"mo"}</p>
             </div>
+          ))}
+        </div>
+                
+            
       </div>
+      </div>
+            <div className="text-coolGrey text-xs p-4 flex justify-between">
+                <p>Total {yearly ? '(per year)' : '( per month)'} </p>
+                <p>${totalCost}/{yearly ? "yr":"mo"}</p>
+
+            </div>
       </div>
     </div>
     )

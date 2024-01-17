@@ -35,13 +35,16 @@ export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,la
                 router.push(linkNext);
             }
         }
-        if(currentPage===3){
+        if(currentPage===2){
             if(planChoice===null) {
                 setError(true);
             }else {
                 setError(false);
                 router.push(linkNext);
             }
+        }
+        if(currentPage===3){
+            router.push(linkNext);
         }
     };
     
