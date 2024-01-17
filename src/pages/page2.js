@@ -17,11 +17,9 @@ export default function Page2() {
       btnTextBack="Go back"
       linkNext="/page3"
       linkBack="/"
+      currentPage={3}
       />
     </div>
     </div>
     )
   }
-
-
-

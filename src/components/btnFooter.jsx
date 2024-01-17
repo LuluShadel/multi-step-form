@@ -16,19 +16,23 @@ export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,la
     const [error, setError] = useState(false);
 
     const handleClick = () => {
-        // Vérifie si les champs requis sont remplis
+        
+
+            // Vérifier la page actuelle avant de mettre à jour le store ou changer de page
+            if (currentPage === 1) {
+                // Vérifie si les champs requis sont remplis
         if (!lastName || !email || !phone) {
             setError(true);
         } else {
             // Réinitialise l'état d'erreur 
             setError(false);
-
-            // Vérifier la page actuelle avant de mettre à jour le store ou changer de page
-            if (currentPage === 1) {
                 dispatch(personalinfo({ lastName, email, phone }));
                 // Utiliser la méthode push de useRouter pour naviguer vers la page suivante
                 router.push(linkNext);
             }
+        }
+        if(currentPage===3){
+            router.push(linkNext);
         }
     };
     
