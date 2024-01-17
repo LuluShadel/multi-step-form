@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 
 
 
@@ -25,17 +23,8 @@ export default function Summary () {
     dispatch(addon([]))
   }
 
-  //en cas de rafraichissement pour eviter une erreur à l'utilisateur 
-  const router = useRouter();
-  const selectedPlan = useSelector((state) => state.plan.selectedPlan);
-
-  useEffect(() => {
-    // Vérifie si les données nécessaires ne sont pas présentes
-    if (!selectedPlan) {
-      // Redirige l'utilisateur vers la page 1
-      router.push('/');
-    }
-  }, [selectedPlan, router]);
+ 
+ 
 
     return (
         <div className="flex justify-center bg-magnolia md:bg-white">
@@ -46,21 +35,21 @@ export default function Summary () {
         <div className="bg-magnolia rounded p-4 ">
            <div className="flex justify-between border-b-2 border-lightGrey mb-4">
             <div className="mb-4">
-            <h2>{plan.name}{yearly ? '(Yearly)' : '(Monthly)'}</h2>
+            <h2>{plan?.name}{yearly ? '(Yearly)' : '(Monthly)'}</h2>
             <Link 
             href="/page2" 
             className="text-coolGrey underline text-xs"
             onClick={clearAddon}
             >Change</Link>
             </div>
-            <p>${yearly ? plan.price*10 : plan.price}/{yearly ? "yr":"mo"}</p>
+            <p>${yearly ? plan?.price*10 : plan?.price}/{yearly ? "yr":"mo"}</p>
             </div>
             <div>
             <div className="text-coolGrey text-xs ">
           {addon.map((addon, index) => (
             <div key={index} className="flex justify-between" >
-              <p>{addon.name}</p>
-              <p>${yearly ? addon.price*10 : addon.price}/{yearly ? "yr":"mo"}</p>
+              <p>{addon?.name}</p>
+              <p>${yearly ? addon?.price*10 : addon?.price}/{yearly ? "yr":"mo"}</p>
             </div>
           ))}
         </div>
