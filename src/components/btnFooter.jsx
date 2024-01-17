@@ -20,30 +20,38 @@ export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,la
 
 
     const handleClickNext = () => {
+
+        console.log("current page:", currentPage)
         
 
             // Vérifier la page actuelle avant de mettre à jour le store ou changer de page
             if (currentPage === 1) {
                 // Vérifie si les champs requis sont remplis
-        if (!lastName || !email || !phone) {
-            setError(true);
-        } else {
-            // Réinitialise l'état d'erreur 
-            setError(false);
-                dispatch(personalinfo({ lastName, email, phone }));
+                         if (!lastName || !email || !phone) {
+                                setError(true);
+                } else {
+                     // Réinitialise l'état d'erreur 
+                        setError(false);
+                        
+                        dispatch(personalinfo({ lastName, email, phone }));
                 // Utiliser la méthode push de useRouter pour naviguer vers la page suivante
-                router.push(linkNext);
-            }
-        }
-        if(currentPage===2){
+                        router.push(linkNext);
+                        }
+             }
+       else if(currentPage===2){
+        
             if(planChoice===null) {
+                
                 setError(true);
+                
             }else {
                 setError(false);
                 router.push(linkNext);
+                
+                
             }
         }
-        if(currentPage===3){
+      else  if(currentPage===3){
             router.push(linkNext);
         }
     };
@@ -54,7 +62,7 @@ export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,la
                 router.push(linkBack)
         }
         else if(currentPage===3){
-                dispatch(toggle(false))
+            dispatch(toggle({ isChecked: false }));
                 router.push(linkBack)
         }
         else if (currentPage===4) {

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 export default function Summary () {
 
-    const yearly = useSelector((state) => state.plan.toggle);
+    const yearly = useSelector((state) => state.plan.toggle.isChecked);
     const plan = useSelector((state) =>state.plan.selectedPlan)
     const addon = useSelector((state) =>state.plan.addon)
 
@@ -19,6 +19,10 @@ export default function Summary () {
   const totalCost = plan ? (yearly ? plan.price * 10 : plan.price) + totalAddonCost : 0;
 
 
+  const clearAddon = () => {
+    dispatch(addon([]))
+  }
+
     return (
         <div className="flex justify-center bg-magnolia md:bg-white">
       <div className="relative top-[-3em] bg-white ml-4 mr-4 p-6 rounded-xl flex flex-col gap-4 md:top-0">
@@ -29,7 +33,11 @@ export default function Summary () {
            <div className="flex justify-between border-b-2 border-lightGrey mb-4">
             <div className="mb-4">
             <h2>{plan.name}{yearly ? '(Yearly)' : '(Monthly)'}</h2>
-            <Link href="/page2" className="text-coolGrey underline text-xs">Change</Link>
+            <Link 
+            href="/page2" 
+            className="text-coolGrey underline text-xs"
+            onClick={clearAddon}
+            >Change</Link>
             </div>
             <p>${yearly ? plan.price*10 : plan.price}/{yearly ? "yr":"mo"}</p>
             </div>

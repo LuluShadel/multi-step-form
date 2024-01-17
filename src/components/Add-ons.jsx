@@ -6,7 +6,8 @@ import { useState } from "react";
 export default function AddOn() {
   const dispatch = useDispatch();
 
-  const yearly = useSelector((state) => state.plan.toggle);
+  const yearly = useSelector((state) => state.plan.toggle.isChecked);
+ 
 
   const handleAddonSelection = (name, price, isActive, setActive) => {
     const addonInfo = { name, price, active: !isActive };
