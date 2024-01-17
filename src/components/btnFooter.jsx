@@ -4,13 +4,13 @@ import { useRouter } from 'next/router';
 
 import { useDispatch, useSelector} from 'react-redux';
 
-import { personalinfo } from '../../redux/reducer';
+import { personalinfo,toggle,addon } from '../../redux/reducer';
 import { useState } from "react";
 
 
 
 
-export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,lastName,email,phone,currentPage,addonCustomize,addonOnline,addonStorage}) { 
+export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,lastName,email,phone,currentPage}) { 
     const dispatch = useDispatch();
     const router = useRouter();
     const [error, setError] = useState(false);
@@ -19,7 +19,7 @@ export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,la
     const planChoice = useSelector((state) =>state.plan.selectedPlan)
 
 
-    const handleClick = () => {
+    const handleClickNext = () => {
         
 
             // Vérifier la page actuelle avant de mettre à jour le store ou changer de page
@@ -47,15 +47,31 @@ export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,la
             router.push(linkNext);
         }
     };
+
+    const handleClickBack = () => {
+
+        if(currentPage===2){
+                router.push(linkBack)
+        }
+        else if(currentPage===3){
+                dispatch(toggle(false))
+                router.push(linkBack)
+        }
+        else if (currentPage===4) {
+            dispatch(addon([]))
+            router.push(linkBack)
+        }
+
+    }
     
 
     return (
         <div className="flex justify-between mt-4 mr-4">
-            <a onClick={() => router.push(linkBack)}>{btnTextBack}</a>
+            <a onClick={handleClickBack} >{btnTextBack}</a>
             {error && <p className='text-strawberryRed'>Please fill in all fields </p>}
             <a
                 className="rounded p-3 text-white bg-marineBlue md:mb-10 mr-6 "
-                onClick={handleClick}
+                onClick={handleClickNext}
             >
                 {btnTextNext}
             </a>

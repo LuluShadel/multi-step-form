@@ -6,6 +6,8 @@ import { useState } from "react";
 export default function AddOn() {
   const dispatch = useDispatch();
 
+  const yearly = useSelector((state) => state.plan.toggle);
+
   const handleAddonSelection = (name, price, isActive, setActive) => {
     const addonInfo = { name, price, active: !isActive };
 
@@ -44,7 +46,7 @@ export default function AddOn() {
   const [storageActive, setStorageActive] = useState(false);
   const [customizeActive, setCustomizeActive] = useState(false);
 
-  const yearly = useSelector((state) => state.plan.toggle);
+  
 
   return (
     <div className="flex justify-center bg-magnolia md:bg-white">
