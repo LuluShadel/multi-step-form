@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 
 
@@ -22,6 +24,18 @@ export default function Summary () {
   const clearAddon = () => {
     dispatch(addon([]))
   }
+
+  //en cas de rafraichissement pour eviter une erreur à l'utilisateur 
+  const router = useRouter();
+  const selectedPlan = useSelector((state) => state.plan.selectedPlan);
+
+  useEffect(() => {
+    // Vérifie si les données nécessaires ne sont pas présentes
+    if (!selectedPlan) {
+      // Redirige l'utilisateur vers la page 1
+      router.push('/');
+    }
+  }, [selectedPlan, router]);
 
     return (
         <div className="flex justify-center bg-magnolia md:bg-white">

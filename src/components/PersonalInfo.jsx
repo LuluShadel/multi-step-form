@@ -35,7 +35,7 @@ const handleInputChangeInfo = (e) => {
                 <input 
                 type="text" 
                 placeholder="e.g.Stephen King"
-                className="border-coolgrey border-2 p-2 md:mb-4"
+                className="border-coolgrey border-2 p-2 md:mb-4 hover:border-2 rounded hover:border-marineBlue"
                 value={lastName}
                onChange={handleInputChangeInfo}
                name='lastName'
@@ -44,7 +44,7 @@ const handleInputChangeInfo = (e) => {
                 <input 
                 type="email" 
                 placeholder="e.g.stephenking@lorem.com"
-                className="border-coolgrey border-2 p-2 md:mb-4"
+                className="border-coolgrey border-2 p-2 md:mb-4 hover:border-2 rounded hover:border-marineBlue"
                 value={email}
                 onChange={handleInputChangeInfo}
                name='email'
@@ -54,7 +54,7 @@ const handleInputChangeInfo = (e) => {
                 <input 
                 type="tel" 
                 placeholder="e.g.+1 234 567 890"
-                className="border-coolgrey border-2 p-2"
+                className="border-coolgrey border-2 p-2 hover:border-2 rounded hover:border-marineBlue"
                 value={phone}
                 onChange={handleInputChangeInfo}
                name='phone'

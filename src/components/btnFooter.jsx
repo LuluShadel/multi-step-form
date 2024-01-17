@@ -54,6 +54,9 @@ export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,la
       else  if(currentPage===3){
             router.push(linkNext);
         }
+        else  if(currentPage===4){
+            router.push(linkNext);
+        }
     };
 
     const handleClickBack = () => {
@@ -74,11 +77,11 @@ export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,la
     
 
     return (
-        <div className="flex justify-between mt-4 mr-4">
-            <a onClick={handleClickBack} >{btnTextBack}</a>
+        <div className="flex justify-between items-center ml-4 mr-4 mb-4">
+            <a onClick={handleClickBack} className='cursor-pointer ml-4' >{btnTextBack}</a>
             {error && <p className='text-strawberryRed'>Please fill in all fields </p>}
             <a
-                className="rounded p-3 text-white bg-marineBlue md:mb-10 mr-6 "
+                className="rounded p-3 text-white bg-marineBlue md:mb-10 mr-6 cursor-pointer"
                 onClick={handleClickNext}
             >
                 {btnTextNext}

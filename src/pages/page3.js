@@ -14,7 +14,7 @@ export default function Page3() {
           
       <Sidebar
       pageStyle3="!text-black bg-lightBlue border-none" />
-      <div>
+      <div  className="md:w-[30em] md:h-[35em]">
       
     <AddOn
      />

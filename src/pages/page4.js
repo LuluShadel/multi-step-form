@@ -17,13 +17,13 @@ export default function Page4() {
           
       <Sidebar
       pageStyle4="!text-black bg-lightBlue border-none" />
-      <div>
+      <div  className="md:w-[30em]">
       
     <Summary />
       <BtnFooter 
       btnTextNext="Confirm"
       btnTextBack="Go back"
-      linkNext="/page5"
+      linkNext="/finalePage"
       linkBack="/page3"
       currentPage={4}
       />

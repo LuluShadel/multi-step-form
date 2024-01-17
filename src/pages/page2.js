@@ -10,7 +10,7 @@ export default function Page2() {
           
       <Sidebar
       pageStyle2="!text-black bg-lightBlue border-none" />
-      <div>
+     <div  className="md:w-[30em]">
       <SelectPlan />
       <BtnFooter 
       btnTextNext="Next step"
