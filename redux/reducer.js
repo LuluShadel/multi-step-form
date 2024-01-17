@@ -4,11 +4,7 @@ const initialState = {
   selectedPlan: null,
   personalinfo: null,
   toggle: false,
-  addon: {
-    onlineActive: false,
-    storageActive: false,
-    customizeActive: false,
-  },
+  addon: [],
 };
 
 const planSlice = createSlice({
@@ -17,8 +13,8 @@ const planSlice = createSlice({
   reducers: {
     selectedPlan: (state, action) => {
       const { name, price } = action.payload;
-      // Créer un nouvel objet représentant le nouvel état
-      state.selectedPlan = { ...state.selectedPlan, name, price };
+      // Mettre à jour la propriété selectedPlan avec la nouvelle valeur
+      state.selectedPlan = { name, price };
     },
     personalinfo: (state,action) => {
       const {lastName, email, phone} = action.payload;
@@ -29,13 +25,20 @@ const planSlice = createSlice({
 state.toggle={...state.toggle,isChecked}
     },
     addon: (state, action) => {
-      const { onlineActive, storageActive, customizeActive } = action.payload;
-      state.addon = {
-        ...state.addon,
-        onlineActive: onlineActive !== undefined ? onlineActive : state.addon.onlineActive,
-        storageActive: storageActive !== undefined ? storageActive : state.addon.storageActive,
-        customizeActive: customizeActive !== undefined ? customizeActive : state.addon.customizeActive,
-      };
+      // Vérifier si l'action contient un tableau d'addons
+      if (Array.isArray(action.payload)) {
+        // Réinitialiser les addons avec le tableau fourni
+        state.addon = action.payload;
+      } else {
+        // Gérer l'ajout d'un addon comme avant
+        const { name, price, active } = action.payload;
+
+        if (active) {
+          state.addon.push({ name, price });
+        } else {
+          state.addon = state.addon.filter(addon => addon.name !== name);
+        }
+      }
     },
   },
 });
