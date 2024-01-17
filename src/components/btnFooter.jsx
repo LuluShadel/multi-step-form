@@ -4,13 +4,13 @@ import { useRouter } from 'next/router';
 
 import { useDispatch} from 'react-redux';
 
-import { personalinfo } from '../../redux/reducer';
+import { addon, personalinfo } from '../../redux/reducer';
 import { useState } from "react";
 
 
 
 
-export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,lastName,email,phone,currentPage}) { 
+export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,lastName,email,phone,currentPage,addonCustomize,addonOnline,addonStorage}) { 
     const dispatch = useDispatch();
     const router = useRouter();
     const [error, setError] = useState(false);
@@ -32,6 +32,7 @@ export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,la
             }
         }
         if(currentPage===3){
+            dispatch(addon({addonCustomize,addonOnline,addonStorage}))
             router.push(linkNext);
         }
     };

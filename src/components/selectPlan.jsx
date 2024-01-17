@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 import ToggleSwitch from "./toggleBtn"
 
-import { selectedPlan, toggle } from "../../redux/reducer";
+import { selectedPlan} from "../../redux/reducer";
 
 
 

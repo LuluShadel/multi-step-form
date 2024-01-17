@@ -22,7 +22,7 @@ export default function ToggleSwitch({isChecked,setIsChecked}) {
         <input
           type="checkbox"
           className="sr-only"
-          checked={isChecked}
+          checked={!isChecked}
           onChange={handleToggle}
         />
         

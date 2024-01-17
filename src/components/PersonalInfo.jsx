@@ -5,7 +5,7 @@ export default function PersonalInfo({lastName,setName,email,setEmail,phone,setP
 
 
 
-const handleInputChange = (e) => {
+const handleInputChangeInfo = (e) => {
     const { name, value } = e.target;
 
 
@@ -37,7 +37,7 @@ const handleInputChange = (e) => {
                 placeholder="e.g.Stephen King"
                 className="border-coolgrey border-2 p-2 md:mb-4"
                 value={lastName}
-               onChange={handleInputChange}
+               onChange={handleInputChangeInfo}
                name='lastName'
                 />
                 <label>Email Address</label>
@@ -46,7 +46,7 @@ const handleInputChange = (e) => {
                 placeholder="e.g.stephenking@lorem.com"
                 className="border-coolgrey border-2 p-2 md:mb-4"
                 value={email}
-               onChange={handleInputChange}
+                onChange={handleInputChangeInfo}
                name='email'
                 />
                 
@@ -56,7 +56,7 @@ const handleInputChange = (e) => {
                 placeholder="e.g.+1 234 567 890"
                 className="border-coolgrey border-2 p-2"
                 value={phone}
-               onChange={handleInputChange}
+                onChange={handleInputChangeInfo}
                name='phone'
                pattern="[0-9]*"
                 />
