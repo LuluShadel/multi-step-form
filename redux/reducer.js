@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  selectedPlan:null,
-  personalinfo:null,
-  toggle:false
+  selectedPlan: null,
+  personalinfo: null,
+  toggle: false,
+  addon: {
+    onlineActive: false,
+    storageActive: false,
+    customizeActive: false,
+  },
 };
-
 
 const planSlice = createSlice({
   name: 'plan',
@@ -23,11 +27,21 @@ const planSlice = createSlice({
     toggle : (state,action) => {
       const {isChecked} = action.payload;
 state.toggle={...state.toggle,isChecked}
-    }
+    },
+    addon: (state, action) => {
+      const { onlineActive, storageActive, customizeActive } = action.payload;
+      state.addon = {
+        ...state.addon,
+        onlineActive: onlineActive !== undefined ? onlineActive : state.addon.onlineActive,
+        storageActive: storageActive !== undefined ? storageActive : state.addon.storageActive,
+        customizeActive: customizeActive !== undefined ? customizeActive : state.addon.customizeActive,
+      };
+    },
   },
 });
 
 export const { selectedPlan } = planSlice.actions;
 export const {personalinfo} = planSlice.actions;
 export const {toggle} = planSlice.actions
+export const { addon } = planSlice.actions;
 export default planSlice.reducer;
