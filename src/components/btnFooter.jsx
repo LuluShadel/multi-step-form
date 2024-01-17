@@ -2,9 +2,9 @@
 import { useRouter } from 'next/router';
 
 
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 
-import { addon, personalinfo } from '../../redux/reducer';
+import { personalinfo } from '../../redux/reducer';
 import { useState } from "react";
 
 
@@ -14,6 +14,10 @@ export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,la
     const dispatch = useDispatch();
     const router = useRouter();
     const [error, setError] = useState(false);
+
+    //recupère le plan choisis pour vérification
+    const planChoice = useSelector((state) =>state.plan.selectedPlan)
+
 
     const handleClick = () => {
         
@@ -32,8 +36,12 @@ export default function BtnFooter ({btnTextBack,btnTextNext,linkBack,linkNext,la
             }
         }
         if(currentPage===3){
-            dispatch(addon({addonCustomize,addonOnline,addonStorage}))
-            router.push(linkNext);
+            if(planChoice===null) {
+                setError(true);
+            }else {
+                setError(false);
+                router.push(linkNext);
+            }
         }
     };
     

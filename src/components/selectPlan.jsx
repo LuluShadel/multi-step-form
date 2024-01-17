@@ -47,7 +47,7 @@ const [isChecked, setIsChecked] = useState(false);
             <button 
             className={`p-4 flex items-center border-2 rounded-xl gap-4 h-28 md:flex-col md:gap-8  md:w-36 md:pl-4 md:items-start md:h-44 hover:bg-magnolia hover:border-2 hover:border-marineBlue ${arcadeActive ? 'bg-magnolia border-2 border-marineBlue ' : ''}`}
             onClick={() => {
-                handlePlanSelection("arcade", 9);
+                handlePlanSelection("Arcade", 9);
                 setArcadeActive(true);
                 setAdvancedActive(false)
                 setProActive(false)
@@ -87,7 +87,7 @@ const [isChecked, setIsChecked] = useState(false);
             <button 
            className={`p-4 flex items-center border-2 rounded-xl gap-4 h-28 md:flex-col md:gap-8  md:w-36 md:pl-4 md:items-start md:h-44 hover:bg-magnolia hover:border-2 hover:border-marineBlue ${advancedActive ? 'bg-magnolia border-2 border-marineBlue ' : ''}`}
            onClick={() => {
-            handlePlanSelection("advanced", 12);
+            handlePlanSelection("Advanced", 12);
             setAdvancedActive(true);
             setArcadeActive(false)
             setProActive(false)
@@ -129,7 +129,7 @@ const [isChecked, setIsChecked] = useState(false);
             <button 
            className={`p-4 flex items-center border-2 rounded-xl gap-4 h-28 md:flex-col md:gap-8  md:w-36 md:pl-4 md:items-start md:h-44 hover:bg-magnolia hover:border-2 hover:border-marineBlue ${proActive ? 'bg-magnolia border-2 border-marineBlue ' : ''}`}
            onClick={() => {
-            handlePlanSelection("advanced", 12);
+            handlePlanSelection("Pro", 15);
             setAdvancedActive(false);
             setArcadeActive(false)
             setProActive(true)
